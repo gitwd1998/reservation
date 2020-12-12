@@ -1,0 +1,22 @@
+
+/* 字体图标 */
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+/* 公共消息提示 */
+.info {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  color: #b67f00;
+  font: 14px / normal "";
+  background: #fee066;
+}
+.info .icon {
+    font-size: 30px;
+    padding: 0 10px;
+}

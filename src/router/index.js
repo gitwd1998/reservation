@@ -1,22 +1,27 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import WebView from '../views/WebView.vue'
+import View from '../views/View.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
+  {//底部导航 * 4
+    path: '/', name: 'WebView', component: WebView, redirect: '/home', children: [
+      { path: '/home', name: 'Home', component: () => import('../components/Home') },
+      { path: '/reservation', name: 'Reservation', component: () => import('../components/Reservation') },
+      { path: '/shopping', name: 'Shopping', component: () => import('../components/Shopping') },
+      { path: '/mine', name: 'Mine', component: () => import('../components/Mine') },
+    ]
   },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+  {//底部导航 * 2
+    path: '/view', name: 'View', component: View, redirect: '', children: [
+      { path: '/view/detail', name: 'Detail', component: () => import('../components/Detail') },
+      { path: '/view/order', name: 'Order', component: () => import('../components/Order') },
+      { path: '/view/history', name: 'History', component: () => import('../components/History') },
+      { path: '/view/personal', name: 'Personal', component: () => import('../components/Personal') },
+      { path: '/view/Pay', name: 'Pay', component: () => import('../components/Pay') }
+    ]
   }
 ]
 
