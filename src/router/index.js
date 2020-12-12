@@ -26,7 +26,7 @@ const routes = [
 ]
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: 'hash',//使用history模式后即使给项目手动配置了vue.config.js文件还是需要后端代码配合才能正常显示页面
   base: process.env.BASE_URL,
   routes
 })
